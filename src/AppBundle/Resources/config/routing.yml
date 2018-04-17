@@ -1,0 +1,77 @@
+
+
+app_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Default:indexx }
+advert_index:
+    path:     /advert/
+    defaults: { _controller: "AppBundle:Advert:index" }
+    methods:  GET
+
+advert_show:
+    path:     /advert/{id}/show
+    defaults: { _controller: "AppBundle:Advert:show" }
+    methods:  GET
+
+advert_new:
+    path:     /advert/new
+    defaults: { _controller: "AppBundle:Advert:new" }
+    methods:  [GET, POST]
+
+advert_edit:
+    path:     /advert/{id}/edit
+    defaults: { _controller: "AppBundle:Advert:edit" }
+    methods:  [GET, POST]
+
+advert_delete:
+    path:     /advert/{id}/delete
+    defaults: { _controller: "AppBundle:Advert:delete" }
+    methods:  DELETE
+candidature_index:
+    path:     /candidature/
+    defaults: { _controller: "AppBundle:Candidature:index" }
+    methods:  GET
+
+candidature_show:
+    path:     /candidature/{id}/show
+    defaults: { _controller: "AppBundle:Candidature:show" }
+    methods:  GET
+
+candidature_new:
+    path:     /candidature/new
+    defaults: { _controller: "AppBundle:Candidature:new" }
+    methods:  [GET, POST]
+
+candidature_edit:
+    path:     /candidature/{id}/edit
+    defaults: { _controller: "AppBundle:Candidature:edit" }
+    methods:  [GET, POST]
+
+candidature_delete:
+    path:     /candidature/{id}/delete
+    defaults: { _controller: "AppBundle:Candidature:delete" }
+    methods:  DELETE
+company_index:
+    path:     /company/
+    defaults: { _controller: "AppBundle:Company:index" }
+    methods:  GET
+
+company_show:
+    path:     /company/{id}/show
+    defaults: { _controller: "AppBundle:Company:show" }
+    methods:  GET
+
+company_new:
+    path:     /company/new
+    defaults: { _controller: "AppBundle:Company:new" }
+    methods:  [GET, POST]
+
+company_edit:
+    path:     /company/{id}/edit
+    defaults: { _controller: "AppBundle:Company:edit" }
+    methods:  [GET, POST]
+
+company_delete:
+    path:     /company/{id}/delete
+    defaults: { _controller: "AppBundle:Company:delete" }
+    methods:  DELETE

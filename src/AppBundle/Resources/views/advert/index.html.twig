@@ -1,0 +1,206 @@
+{% extends 'base2.html.twig' %}
+
+{% block content %}
+    <div class="inner-content listing">
+    <div class="container">
+<div class="row">
+        <div class="col-md-3 col-sm-4">
+            <div class="leftSidebar">
+                <div class="filter">Search Listings</div>
+                <div class="sidebarpad">
+                    <form>
+                        <h4>Job Search</h4>
+                        <div class="input-wrap">
+                            <input type="text" name="job search" placeholder="Job Search" class="form-control">
+                        </div>
+                        <h4>Categories</h4>
+                        <div class="input-wrap">
+                            <select name="category" class="form-control">
+                                <option>Category </option>
+                                <option value="designer">Web Designer</option>
+                                <option value="developer">Web Developer</option>
+                                <option value="seo">SEO Expert</option>
+                            </select>
+                        </div>
+                        <h4>City</h4>
+                        <div class="input-wrap">
+                            <select name="city" class="form-control">
+                                <option>Select Cities </option>
+                                <option value="01">New York</option>
+                                <option value="02">Chicago</option>
+                                <option value="03">San Diego</option>
+                                <option value="04">Los Angeles</option>
+                                <option value="05">Houston</option>
+                            </select>
+                        </div>
+                        <h4>Price Range</h4>
+                        <div class="input-wrap">
+                            <ul class="check">
+                                <li>
+                                    <input type="checkbox" value="Almost Like New" name="price" id="price">
+                                    <label for="price">$100 to $199<span>4</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="Almost Like New" name="price" id="price2">
+                                    <label for="price2">$200 to $299<span>9</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="Almost Like New" name="price" id="price3">
+                                    <label for="price3">$300 to $399<span>17</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="Almost Like New" name="price" id="price4">
+                                    <label for="price4">$400 to $499<span>42</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="Almost Like New" name="price" id="price5">
+                                    <label for="price5">$500 to $599<span>12</span></label>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <h4>Contract</h4>
+
+                        <div class="input-wrap">
+                            <ul class="check">
+                                <li>
+                                    <input type="checkbox" value="Almost Like New" name="contract" id="contract2">
+                                    <label for="contract2">Full Time<span>241</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="Almost Like New" name="contract" id="contract3">
+                                    <label for="contract3">Part Time<span>159</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="Almost Like New" name="contract" id="contract4">
+                                    <label for="contract4">Intership<span>172</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="Almost Like New" name="contract" id="contract5">
+                                    <label for="contract5">Freelance<span>322</span></label>
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="sub-btn">
+                            <input type="submit" class="sbutn" value="Search Filter">
+                        </div>
+                    </form>
+                    <div class="ad"><img src="images/ad.jpg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 col-sm-8">
+            <div class="sortbybar">
+                <div class="sortbar listingSearch">
+
+                    <div class="form-wrap">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <input type="text" name=" job title" placeholder="Job title, skills, or company" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <select name="location" class="form-control">
+                                            <option>Location... </option>
+                                            <option value="new-york">New York</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <select name="category" class="form-control">
+                                            <option>Category... </option>
+                                            <option value="01">Web Designer</option>
+                                            <option value="02">Web Developer</option>
+                                            <option value="03">SEO Expert</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="input-btn">
+                                        <input type="submit" class="sbutn" value="Search">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <ul class="listService">
+    {% for advert in adverts %}
+                <li>
+                    <div class="listWrpService featured-wrap">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-3 col-xs-3">
+                                <div class="listImg"><img src="images/feature01.png" alt=""></div>
+                            </div>
+                            <div class="col-md-10 col-sm-9 col-xs-9">
+
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h3><a href="{{ path('advert_show', { 'id': advert.id }) }}">{{ advert.title }}</a></h3>
+                                        <ul class="featureInfo innerfeat">
+                                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ advert.companyId.adresse }}</li>
+                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>{% if advert.publicationDate %}{{ advert.publicationDate|date('Y-mm-d') }}{% endif %} - {% if advert.expirationDate %}{{ advert.expirationDate|date('Y-mm-d') }}{% endif %} </li>
+                                            <li>Part Time</li>
+                                        </ul>
+
+
+                                        <p class="para">{{ advert.content }}</p>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="click-btn apply"><a href="{{ path('candidature_new') }}">Apply Now</a></div>
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+        {% endfor %}
+
+            </ul>
+            <div class="pagiWrap">
+                <div class="row">
+
+                    <div class="col-md-8 col-sm-8">
+                        <ul class="pagination">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+{% endblock %}

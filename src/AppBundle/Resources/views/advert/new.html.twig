@@ -1,0 +1,39 @@
+{% extends 'Base2.html.twig' %}
+
+{% block content %}
+<div class="inner-content loginWrp">
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-md-2 col-sm-2"></div>
+            <div class="col-md-8 col-sm-8">
+                <div class="login">
+
+                    <div class="formint conForm">
+
+    <h1>Informations sur le poste</h1>
+
+    {{ form_start(form) }}
+
+        {{ form_widget(form.title, {'attr': {'class': 'form-control','placeholder':'Titre'}}) }}<br>
+        {{ form_widget(form.content, {'attr': {'class': 'form-control','placeholder':'Titre'}}) }}<br>
+                        <label>Date d'expiration
+        {{ form_widget(form.expirationDate) }}
+                        </label><br><br>
+
+                        <input type="submit" class="sbutn" value="Valider" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+
+        </li>
+    </ul>
+                    </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
