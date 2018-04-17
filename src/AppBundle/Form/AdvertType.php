@@ -17,12 +17,13 @@ class AdvertType extends AbstractType
     {
         $builder
             ->add('title')
+
+            ->add('expirationDate',DateType::class)
+            ->add('categorie')
             ->add('content',CKEditorType::class, array(
                 'config' => array(
                     'uiColor' => '#ffffff'
-                )))
-            ->add('expirationDate',DateType::class)
-            ->add('categorie');
+                )));
     }/**
      * {@inheritdoc}
      */

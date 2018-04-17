@@ -29,11 +29,18 @@ class User extends BaseUser
     private $cv;
 
     /**
+ * @var string
+ *
+ * @ORM\Column(name="cvr", type="string", length=255, nullable=false)
+ */
+    private $cvr;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="cvr", type="string", length=255, nullable=false)
+     * @ORM\Column(name="niveauEtude", type="string", length=255, nullable=false)
      */
-    private $cvr;
+    private $niveauEtude;
 
     /**
      * @var string
@@ -56,12 +63,6 @@ class User extends BaseUser
      */
     private $dateNaissance;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="niveauEtude", type="string", length=255, nullable=false)
-     */
-    private $niveauEtude;
     /**
      * @var string
      *
@@ -206,29 +207,7 @@ class User extends BaseUser
         return $this->dateNaissance;
     }
 
-    /**
-     * Set niveauEtude
-     *
-     * @param string $niveauEtude
-     *
-     * @return User
-     */
-    public function setNiveauEtude($niveauEtude)
-    {
-        $this->niveauEtude = $niveauEtude;
 
-        return $this;
-    }
-
-    /**
-     * Get niveauEtude
-     *
-     * @return string
-     */
-    public function getNiveauEtude()
-    {
-        return $this->niveauEtude;
-    }
 
     /**
      * Set nom
@@ -277,4 +256,23 @@ class User extends BaseUser
     {
         return $this->prenom;
     }
+
+    /**
+     * @return string
+     */
+    public function getNiveauEtude()
+    {
+        return $this->niveauEtude;
+    }
+
+    /**
+     * @param string $niveauEtude
+     */
+    public function setNiveauEtude($niveauEtude)
+    {
+        $this->niveauEtude = $niveauEtude;
+    }
+
+
+
 }

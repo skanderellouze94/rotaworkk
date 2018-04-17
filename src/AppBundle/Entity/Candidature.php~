@@ -110,28 +110,4 @@ class Candidature
     {
         return $this->user;
     }
-
-    /**
-     * Set motivation
-     *
-     * @param string $motivation
-     *
-     * @return Candidature
-     */
-    public function setMotivation($motivation)
-    {
-        $this->motivation = $motivation;
-
-        return $this;
-    }
-
-    /**
-     * Get motivation
-     *
-     * @return string
-     */
-    public function getMotivation()
-    {
-        return $this->motivation;
-    }
 }
