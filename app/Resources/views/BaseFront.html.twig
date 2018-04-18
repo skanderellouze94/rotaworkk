@@ -115,6 +115,17 @@
 <div class="slider-wrap">
     <div class="container">
         <div class="sliderTxt">
+            {% if app.user == null %}
+            <p>Find your desire one in a minute</p>
+            <h1>Join us & Explore Thousands of Jobs</h1>
+<center>
+    <div style="margin-left: 20%">
+                <div class="post-btn"><a href="{{ path('member_register')}}"> vous cherchez du travaille ?</a></div>
+                <div class="post-btn"><a href="{{ path('company_register')}}">  vous cherchez des travailleurs ?</a></div>
+    </div>
+</center>
+            {% endif %}
+            {% if app.user != null %}
             <p>Find your desire one in a minute</p>
             <h1>Join us & Explore Thousands of Jobs</h1>
             <div class="form-wrap">
@@ -151,6 +162,7 @@
                     </div>
                 </form>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -312,17 +324,17 @@
     </div>
 </div>
 
-<!--copyright end-->
+    <!--copyright end-->
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="{{ asset('assets/Front/js/jquery-2.1.4.min.js')}}"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{{ asset('assets/Front/js/bootstrap.min.js')}}"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ asset('assets/Front/js/jquery-2.1.4.min.js')}}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ asset('assets/Front/js/bootstrap.min.js')}}"></script>
 
-<!-- general script file -->
-<script src="{{ asset('assets/Front/js/owl.carousel.js')}}"></script>
-<script type="text/javascript" src="{{ asset('assets/Front/js/script.js')}}"></script>
-</body>
+    <!-- general script file -->
+    <script src="{{ asset('assets/Front/js/owl.carousel.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('assets/Front/js/script.js')}}"></script>
+    </body>
 
-<!-- Mirrored from hassandesigns.top/html/jobfinder/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 14 Apr 2018 11:05:57 GMT -->
-</html>
+    <!-- Mirrored from hassandesigns.top/html/jobfinder/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 14 Apr 2018 11:05:57 GMT -->
+    </html>

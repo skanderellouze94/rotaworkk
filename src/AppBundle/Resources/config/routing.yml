@@ -75,3 +75,19 @@ company_delete:
     path:     /company/{id}/delete
     defaults: { _controller: "AppBundle:Company:delete" }
     methods:  DELETE
+
+member_register:
+    path:     /member/register
+    defaults: { _controller: "AppBundle:Member:register" }
+    methods:  [GET, POST]
+company_register:
+    path:     /company/register
+    defaults: { _controller: "AppBundle:Company:register" }
+    methods:  [GET, POST]
+
+member_index:
+    path:     /member/index
+    defaults: {_controller: "AppBundle:Member:index"}
+member_show:
+    path:     /member/{id}/show
+    defaults: {_controller: "AppBundle:Member:show"}

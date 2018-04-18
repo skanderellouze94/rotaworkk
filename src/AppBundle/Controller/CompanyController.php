@@ -3,7 +3,9 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Company;
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -120,5 +122,50 @@ class CompanyController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    public function registerAction(Request $request)
+    {
+        $company = new Company();
+        $form = $this->createForm(\AppBundle\Form\CompanyRegisterType::class,$company);
+        $em    = $this->getDoctrine()->getManager();
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            /**
+             *@var UploadedFile $file
+             */
+            $file=$company->getPhoto();
+
+            $fileName=md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('image_directory'),$fileName
+            );
+
+            $company = $form->getData();
+
+            $user = new User();
+            $user->setEmail($form->get('email')->getData());
+            $user->setUserName($form->get('login')->getData());
+            $user->setPlainPassword($form->get('password')->getData());
+            $user->setRoles(array('ROLE_PARTENAIRE'));
+            $user->setEnabled(1);
+
+            $company->setUser($user);
+            $company->setPhoto($fileName);
+            $em->persist($user);
+
+            $em->persist($company);
+
+            $em->flush();
+
+
+        }
+
+        return $this->render('AppBundle:Registration:company_register.html.twig',
+            array('form'=>$form->createView())
+        );
+
     }
 }

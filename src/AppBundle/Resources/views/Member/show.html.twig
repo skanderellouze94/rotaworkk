@@ -1,0 +1,45 @@
+{% extends 'Base2.html.twig' %}
+
+{% block content %}
+    <div class="inner-content loginWrp">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-md-9 col-sm-8">
+                    <div class="heading-title">Showing <span>All Resumes</span></div>
+                    <div class="listWrpService featured-wrap candidate candetail">
+                        <div class="row">
+                            <div class="listWrpService featured-wrap candidate">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-3 col-xs-12">
+                                        <div class="listImg"><img src="{{asset("uploads/images/"~m.photo)}}" alt=""></div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <h3><a href="#">{{ m.nom }}</a></h3>
+                                                <div class="designation">{{ m.rotaract }}</div>
+                                                <ul class="featureInfo">
+                                                    <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ m.adresse }}</li>
+
+                                                </ul>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    <div class="listWrpService featured-wrap candidate candetail">
+                        <h2>CV</h2>
+                        <iframe src="{{asset('uploads/cv/'~m.cv)}}" style="width:800px; height:740px"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
