@@ -7,6 +7,39 @@ advert_index:
     path:     /advert/
     defaults: { _controller: "AppBundle:Advert:index" }
     methods:  GET
+advert_indexIT:
+    path:     /advert/IT
+    defaults: { _controller: "AppBundle:Advert:indexIT" }
+    methods:  GET
+advert_indexManagment:
+    path:     /advert/MA
+    defaults: { _controller: "AppBundle:Advert:indexManagment" }
+    methods:  GET
+advert_indexDC:
+    path:     /advert/DC
+    defaults: { _controller: "AppBundle:Advert:indexDC" }
+    methods:  GET
+advert_indexAcc:
+    path:     /advert/Acc
+    defaults: { _controller: "AppBundle:Advert:indexAcc" }
+    methods:  GET
+advert_indexSM:
+    path:     /advert/SM
+    defaults: { _controller: "AppBundle:Advert:indexSM" }
+    methods:  GET
+advert_indexLJ:
+    path:     /advert/LJ
+    defaults: { _controller: "AppBundle:Advert:indexLJ" }
+    methods:  GET
+advert_indexBank:
+    path:     /advert/Bank
+    defaults: { _controller: "AppBundle:Advert:indexBank" }
+    methods:  GET
+advert_indexDA:
+    path:     /advert/DA
+    defaults: { _controller: "AppBundle:Advert:indexDA" }
+    methods:  GET
+
 
 advert_show:
     path:     /advert/{id}/show
@@ -38,7 +71,7 @@ candidature_show:
     methods:  GET
 
 candidature_new:
-    path:     /candidature/new
+    path:     /candidature/new/{id}
     defaults: { _controller: "AppBundle:Candidature:new" }
     methods:  [GET, POST]
 

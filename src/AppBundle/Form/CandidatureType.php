@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +14,11 @@ class CandidatureType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')->add('advert')->add('user');
+        $builder
+            ->add('motivation',CKEditorType::class, array(
+                'config' => array(
+                    'uiColor' => '#ffffff'
+                )));
     }/**
      * {@inheritdoc}
      */

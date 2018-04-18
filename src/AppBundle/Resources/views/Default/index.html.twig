@@ -2,3 +2,31 @@
 
 {% block content %}
 {% endblock %}
+{% block job %}
+
+    {% for advert in adverts %}
+        <li class="col-md-6 col-sm-6">
+            <div class="listWrpService">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <div class="listImg"><img src="{{asset("uploads/images/"~advert.company.photo)}}" alt="" style="height: 153px"></div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <h3><a href="#">{{ advert.company.name }}</a></h3>
+                        <p>{{ advert.title }}</p>
+                        <ul class="featureInfo">
+                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ advert.company.adresse }}</li>
+                            <li><i class="fa fa-calendar" aria-hidden="true"></i> {{ advert.publicationDate|date('y/M/d') }} - {{ advert.expirationDate|date('y/M/d') }} </li>
+                        </ul>
+
+                        <div class="click-btn"><a href="{{ path('candidature_new',{'id':advert.id}) }}">Postuler maintenant</a></div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </li>
+        {% endfor %}
+
+{% endblock %}

@@ -27,6 +27,88 @@ class AdvertController extends Controller
         ));
     }
 
+    public function indexITAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>1]);
+
+        return $this->render('AppBundle:advert:index.html.twig', array(
+            'adverts' => $adverts,
+        ));
+    }
+    public function indexManagmentAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>2]);
+
+        return $this->render('AppBundle:advert:index.html.twig', array(
+            'adverts' => $adverts,
+        ));
+    }
+    public function indexDCAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>3]);
+
+        return $this->render('AppBundle:advert:index.html.twig', array(
+            'adverts' => $adverts,
+        ));
+    }
+    public function indexAccAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>4]);
+
+        return $this->render('AppBundle:advert:index.html.twig', array(
+            'adverts' => $adverts,
+        ));
+    }
+    public function indexSMAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>5]);
+
+        return $this->render('AppBundle:advert:index.html.twig', array(
+            'adverts' => $adverts,
+        ));
+    }
+    public function indexLJAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>6]);
+
+        return $this->render('AppBundle:advert:index.html.twig', array(
+            'adverts' => $adverts,
+        ));
+    }
+    public function indexBankAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>7]);
+
+        return $this->render('AppBundle:advert:index.html.twig', array(
+            'adverts' => $adverts,
+        ));
+    }
+    public function indexDAAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>8]);
+
+        return $this->render('AppBundle:advert:index.html.twig', array(
+            'adverts' => $adverts,
+        ));
+    }
+
+
     /**
      * Creates a new advert entity.
      *
@@ -36,7 +118,7 @@ class AdvertController extends Controller
         $advert = new Advert();
         $em = $this->getDoctrine()->getManager();
 
-        $company = $em->getRepository('AppBundle:Company')->findBy(['user'=>$this->getUser()]);
+        $company = $em->getRepository('AppBundle:Company')->findOneBy(['user'=>$this->getUser()]);
 
         $form = $this->createForm('AppBundle\Form\AdvertType', $advert);
         $form->handleRequest($request);

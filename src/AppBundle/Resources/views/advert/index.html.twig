@@ -148,25 +148,25 @@
                     <div class="listWrpService featured-wrap">
                         <div class="row">
                             <div class="col-md-2 col-sm-3 col-xs-3">
-                                <div class="listImg"><img src="images/feature01.png" alt=""></div>
+                                <div class="listImg"><img src="{{asset("uploads/images/"~advert.company.photo)}}" alt=""></div>
                             </div>
                             <div class="col-md-10 col-sm-9 col-xs-9">
 
                                 <div class="row">
                                     <div class="col-md-9">
+                                        <h3><a href="{{ path('company_show', { 'id': advert.id }) }}">{{ advert.company.name }}</a></h3>
                                         <h3><a href="{{ path('advert_show', { 'id': advert.id }) }}">{{ advert.title }}</a></h3>
                                         <ul class="featureInfo innerfeat">
-                                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ advert.companyId.adresse }}</li>
-                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>{% if advert.publicationDate %}{{ advert.publicationDate|date('Y-mm-d') }}{% endif %} - {% if advert.expirationDate %}{{ advert.expirationDate|date('Y-mm-d') }}{% endif %} </li>
-                                            <li>Part Time</li>
+                                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ advert.company.adresse }}</li>
+                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>{% if advert.publicationDate %}{{ advert.publicationDate|date('Y-M-d') }}{% endif %} - {% if advert.expirationDate %}{{ advert.expirationDate|date('Y-M-d') }}{% endif %} </li>
+
                                         </ul>
 
 
-                                        <p class="para">{{ advert.content }}</p>
                                     </div>
 
                                     <div class="col-md-3">
-                                        <div class="click-btn apply"><a href="{{ path('candidature_new') }}">Apply Now</a></div>
+                                        <div class="click-btn apply"><a href="{{ path('candidature_new',{'id':advert.id}) }}">Postuler maintenant</a></div>
 
 
                                     </div>

@@ -31,7 +31,7 @@ class CandidatureController extends Controller
      * Creates a new candidature entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request,$id)
     {
         $candidature = new Candidature();
         $form = $this->createForm('AppBundle\Form\CandidatureType', $candidature);
@@ -39,6 +39,9 @@ class CandidatureController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $candidature->setUser($this->getUser());
+            $advert = $em->getRepository('AppBundle:Advert')->find($id);
+            $candidature->setAdvert($advert);
             $em->persist($candidature);
             $em->flush();
 

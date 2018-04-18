@@ -48,40 +48,19 @@
                         <div class="navbar-header"> </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="dropdown"> <a href="index.html" class="active"> Home <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li> <a href="index.html"> Home with image </a></li>
-                                        <li> <a href="index2.html"> Home with slider </a></li>
-                                    </ul>
+                                <li class="dropdown"> <a href="{{ path('app_homepage') }}"> Home</a>
+
                                 </li>
-                                <li> <a href="about-us.html"> About Us</a></li>
-                                <li class="dropdown"> <a href="#"> Pages <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li> <a href="about-us.html"> About Us </a></li>
-                                        <li> <a href="job-listing.html"> Job Listing </a></li>
-                                        <li> <a href="job-details.html"> Job Details </a></li>
-                                        <li> <a href="candidates-listing.html"> Jobseeker Listing </a></li>
-                                        <li> <a href="candidates-details.html"> Jobseeker Details </a></li>
-                                        <li> <a href="login.html"> Login </a></li>
-                                        <li> <a href="register.html"> Register </a></li>
-                                        <li> <a href="post-job.html"> Job Post </a></li>
-                                        <li> <a href="pricing.html"> Packages </a></li>
-                                        <li> <a href="testimonials.html"> Testimonials </a></li>
-                                        <li> <a href="faqs.html"> FAQ </a></li>
-                                        <li> <a href="404.html"> 404 Page </a></li>
-                                        <li> <a href="typoghrapy.html"> Typoghrapy </a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"> <a href="blog.html"> Blog <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li> <a href="blog-grid.html"> Blog Grid sidebar</a></li>
-                                        <li> <a href="blog.html"> Blog List sidebar</a></li>
-                                        <li> <a href="blog-grid-full-width.html"> Blog full width </a></li>
-                                        <li> <a href="blog-details.html"> Blog Details with sidebar </a></li>
-                                        <li> <a href="blog-details-full-width.html"> Blog Details </a></li>
-                                    </ul>
-                                </li>
-                                <li> <a href="contact-us.html"> Contact us </a></li>
+                                <li> <a href="{{ path('advert_index') }}"> Annonces </a></li>
+                                {% if is_granted('ROLE_PARTENAIRE') %}
+                                <li> <a href="{{ path('member_index') }}"> AAAAA </a></li>
+                                {% endif %}
+                                {% if is_granted('ROLE_ADMIN') %}
+                                <li> <a href="{{ path('company_index') }}"> Entreprises </a></li>
+                                {% endif %}
+
+                                <li> <a href="#"> Forum </a></li>
+
                             </ul>
                         </div>
                         <div class="clearfix"></div>
@@ -93,10 +72,16 @@
             <!--col-md-2 start-->
             <div class="col-md-4 col-sm-12">
                 <div class="header-right">
-                    <div class="post-btn"><a href="post-job.html">Post a Job</a></div>
+                    {% if is_granted('ROLE_PARTENAIRE') %}
+                        <div class="post-btn"><a href="post-job.html">Post a Job</a></div>
+                    {% endif %}
                     <div class="user-wrap">
-                        <div class="login-btn"><a href="login.html">Login</a></div>
-                        <div class="register-btn"><a href="register.html">Register</a></div>
+                        {% if app.user %}
+                            <div class="login-btn"><a href="{{ path('fos_user_security_logout') }}">Logout</a></div>
+                        {% else %}
+                            <div class="login-btn"><a href="{{ path('fos_user_security_login') }}">Login</a></div>
+                            <div class="register-btn"><a href="register.html">Register</a></div>
+                        {% endif %}
                         <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
@@ -112,7 +97,7 @@
 <!--inner heading start-->
 <div class="inner-heading">
     <div class="container">
-        <h3>Job Listing</h3>
+       {% block titre %} {% endblock %}
     </div>
 </div>
 <!--inner heading end-->

@@ -50,40 +50,18 @@
                         <div class="navbar-header"> </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="dropdown"> <a href="index.html" class="active"> Home <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li> <a href="index.html"> Home with image </a></li>
-                                        <li> <a href="index2.html"> Home with slider </a></li>
-                                    </ul>
+                                <li class="dropdown"> <a href="{{ path('app_homepage') }}"> Home</a>
+
                                 </li>
-                                <li> <a href="about-us.html"> About Us</a></li>
-                                <li class="dropdown"> <a href="#"> Pages <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li> <a href="about-us.html"> About Us </a></li>
-                                        <li> <a href="job-listing.html"> Job Listing </a></li>
-                                        <li> <a href="job-details.html"> Job Details </a></li>
-                                        <li> <a href="candidates-listing.html"> Jobseeker Listing </a></li>
-                                        <li> <a href="candidates-details.html"> Jobseeker Details </a></li>
-                                        <li> <a href="login.html"> Login </a></li>
-                                        <li> <a href="register.html"> Register </a></li>
-                                        <li> <a href="post-job.html"> Job Post </a></li>
-                                        <li> <a href="pricing.html"> Packages </a></li>
-                                        <li> <a href="testimonials.html"> Testimonials </a></li>
-                                        <li> <a href="faqs.html"> FAQ </a></li>
-                                        <li> <a href="404.html"> 404 Page </a></li>
-                                        <li> <a href="typoghrapy.html"> Typoghrapy </a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"> <a href="blog.html"> Blog <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li> <a href="blog-grid.html"> Blog Grid sidebar</a></li>
-                                        <li> <a href="blog.html"> Blog List sidebar</a></li>
-                                        <li> <a href="blog-grid-full-width.html"> Blog full width </a></li>
-                                        <li> <a href="blog-details.html"> Blog Details with sidebar </a></li>
-                                        <li> <a href="blog-details-full-width.html"> Blog Details </a></li>
-                                    </ul>
-                                </li>
-                                <li> <a href="contact-us.html"> Contact us </a></li>
+                                <li> <a href="{{ path('advert_index') }}"> Annonces </a></li>
+                                {% if is_granted('ROLE_PARTENAIRE') %}
+                                    <li> <a href="{{ path('member_index') }}"> AAAAA </a></li>
+                                {% endif %}
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li> <a href="{{ path('company_index') }}"> Entreprises </a></li>
+                                {% endif %}
+
+                                <li> <a href="#"> Forum </a></li>
                             </ul>
                         </div>
                         <div class="clearfix"></div>
@@ -95,10 +73,16 @@
             <!--col-md-2 start-->
             <div class="col-md-4 col-sm-12">
                 <div class="header-right">
-                    <div class="post-btn"><a href="post-job.html">Post a Job</a></div>
+                    {% if is_granted('ROLE_PARTENAIRE') %}
+                    <div class="post-btn"><a href="{{ path('advert_new') }}">Post a Job</a></div>
+                    {% endif %}
                     <div class="user-wrap">
-                        <div class="login-btn"><a href="login.html">Login</a></div>
+                        {% if app.user %}
+                        <div class="login-btn"><a href="{{ path('fos_user_security_logout') }}">Logout</a></div>
+                        {% else %}
+                        <div class="login-btn"><a href="{{ path('fos_user_security_login') }}">Login</a></div>
                         <div class="register-btn"><a href="register.html">Register</a></div>
+                        {% endif %}
                         <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
@@ -176,53 +160,53 @@
             <li class="col-md-3 col-sm-6 col-xs-6">
                 <div class="jobsWrp">
                     <div class="job-icon"><i class="fa fa-laptop" aria-hidden="true"></i></div>
-                    <div class="jobTitle"><a href="#">IT Engineer</a></div>
+                    <div class="jobTitle"><a href="{{ path('advert_indexIT') }}">IT Engineer</a></div>
                 </div>
             </li>
             <li class="col-md-3 col-sm-6 col-xs-6">
                 <div class="jobsWrp">
                     <div class="job-icon"><i class="fa fa-suitcase" aria-hidden="true"></i></div>
-                    <div class="jobTitle"><a href="#">Management</a></div>
+                    <div class="jobTitle"><a href="{{ path('advert_indexManagment') }}">Management</a></div>
                 </div>
             </li>
             <li class="col-md-3 col-sm-6 col-xs-6">
                 <div class="jobsWrp">
                     <div class="job-icon"><i class="fa fa-tachometer" aria-hidden="true"></i></div>
-                    <div class="jobTitle"><a href="#">Digital & Creative</a></div>
+                    <div class="jobTitle"><a href="{{ path('advert_indexDC') }}">Digital & Creative</a></div>
                 </div>
             </li>
             <li class="col-md-3 col-sm-6 col-xs-6">
                 <div class="jobsWrp">
                     <div class="job-icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-                    <div class="jobTitle"><a href="#">Accounting</a></div>
+                    <div class="jobTitle"><a href="{{ path('advert_indexAcc') }}">Accounting</a></div>
                 </div>
             </li>
             <li class="col-md-3 col-sm-6 col-xs-6">
                 <div class="jobsWrp">
                     <div class="job-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div>
-                    <div class="jobTitle"><a href="#">Sales & marketing</a></div>
+                    <div class="jobTitle"><a href="{{ path('advert_indexSM') }}">Sales & marketing</a></div>
                 </div>
             </li>
             <li class="col-md-3 col-sm-6 col-xs-6">
                 <div class="jobsWrp">
                     <div class="job-icon"><i class="fa fa-gavel" aria-hidden="true"></i></div>
-                    <div class="jobTitle"><a href="#">Legal Job</a></div>
+                    <div class="jobTitle"><a href="{{ path('advert_indexLJ') }}">Legal Job</a></div>
                 </div>
             </li>
             <li class="col-md-3 col-sm-6 col-xs-6">
                 <div class="jobsWrp">
                     <div class="job-icon"><i class="fa fa-university" aria-hidden="true"></i></div>
-                    <div class="jobTitle"><a href="#">Banking</a></div>
+                    <div class="jobTitle"><a href="{{ path('advert_indexBank') }}">Banking</a></div>
                 </div>
             </li>
             <li class="col-md-3 col-sm-6 col-xs-6">
                 <div class="jobsWrp">
                     <div class="job-icon"><i class="fa fa-paint-brush" aria-hidden="true"></i></div>
-                    <div class="jobTitle"><a href="#">Design & Art</a></div>
+                    <div class="jobTitle"><a href="{{ path('advert_indexDA') }}">Design & Art</a></div>
                 </div>
             </li>
         </ul>
-        <div class="read-btn"><a href="#">View All Categories</a></div>
+        
     </div>
 </div>
 
@@ -235,43 +219,14 @@
 
         <div class="listWrpService">
             <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-3">
-                    <div class="listImg"><img src="{{ asset('assets/Front/images/feature01.png')}}" alt=""></div>
-                </div>
-                <div class="col-md-9 col-sm-9 col-xs-9">
-                    <h3><a href="#">SEO Expert</a></h3>
-                    <p>Design Communication Studio</p>
-                    <ul class="featureInfo">
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Atlanta, GA</li>
-                        <li><i class="fa fa-calendar" aria-hidden="true"></i> Dec 30, 2015 - Feb 20, 2016 </li>
-                    </ul>
-                    <div class="time-btn">Freelacne</div>
-                    <div class="click-btn"><a href="#">Apply Now</a></div>
-                </div>
-            </div>
+            {% block job %}
+
+            {% endblock %}
+
         </div>
-        </li>
-        <li class="col-md-6 col-sm-6">
-            <div class="listWrpService">
-                <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-3">
-                        <div class="listImg"><img src="{{ asset('assets/Front/images/feature02.png')}}" alt=""></div>
-                    </div>
-                    <div class="col-md-9 col-sm-9 col-xs-9">
-                        <h3><a href="#">Senior UI & UX Designer</a></h3>
-                        <p>Design Communication Studio</p>
-                        <ul class="featureInfo">
-                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> Atlanta, GA</li>
-                            <li><i class="fa fa-calendar" aria-hidden="true"></i> Dec 30, 2015 - Feb 20, 2016 </li>
-                        </ul>
-                        <div class="time-btn">Part Time</div>
-                        <div class="click-btn"><a href="#">Apply Now</a></div>
-                    </div>
-                </div>
-            </div>
-        </li>
+        </div>
     </ul>
-    <div class="read-btn"><a href="#">View All Featured Jobs</a></div>
+    <div class="read-btn"><a href="{{ path('advert_index') }}">View All Featured Jobs</a></div>
 </div>
 </div>
 <!--feature end-->

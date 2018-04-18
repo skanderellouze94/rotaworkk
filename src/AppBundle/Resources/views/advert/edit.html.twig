@@ -6,24 +6,27 @@
 
 
             <div class="row">
-                <div class="col-md-2 col-sm-2"></div>
-                <div class="col-md-8 col-sm-8">
+
+                <div class="col-md-12 col-sm-8">
                     <div class="login">
 
                         <div class="formint conForm">
 
                             <h1>Informations sur le poste</h1>
 
-                            {{ form_start(form) }}
+                            {{ form_start(edit_form) }}
 
-                            {{ form_widget(form.title, {'attr': {'class': 'form-control','placeholder':'Titre'}}) }}<br>
-                            {{ form_widget(form.content, {'attr': {'class': 'form-control','placeholder':'Titre'}}) }}<br>
+                            {{ form_widget(edit_form.title, {'attr': {'class': 'form-control','placeholder':'Titre'}}) }}<br>
+                            {{ form_widget(edit_form.content, {'attr': {'class': 'form-control','placeholder':'Titre'}}) }}<br>
+                            <label>Categorie
+                                {{ form_widget(edit_form.categorie) }}
+                            </label><br><br>
                             <label>Date d'expiration
-                                {{ form_widget(form.expirationDate) }}
+                                {{ form_widget(edit_form.expirationDate) }}
                             </label><br><br>
 
                             <input type="submit" class="sbutn" value="Valider" />
-                            {{ form_end(form) }}
+                            {{ form_end(edit_form) }}
 
                             <ul>
                                 <li>
