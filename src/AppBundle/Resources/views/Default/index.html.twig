@@ -19,7 +19,7 @@
                             <li><i class="fa fa-calendar" aria-hidden="true"></i> {{ advert.publicationDate|date('y/M/d') }} - {{ advert.expirationDate|date('y/M/d') }} </li>
                         </ul>
 
-                        <div class="click-btn"><a href="{{ path('candidature_new',{'id':advert.id}) }}">Postuler maintenant</a></div>
+                        <div class="click-btn" style="margin-left: 38%" ><a href="{{ path('advert_show',{'id':advert.id}) }}" >Voir plus</a></div>
 
                     </div>
                 </div>
@@ -27,6 +27,6 @@
 
 
         </li>
-        {% endfor %}
 
+    {% endfor %}
 {% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'Base2.html.twig' %}
+
+{% block titre %} forum {% endblock %}
+
+{% block content %}
+<div class="inner-content blog-wrap">
+    <div class="container">
+
+        <!--Blog grid Start-->
+        <div class="blogWraper">
+            <div class="post-btn">
+            <a href="{{ path('insert_forum') }}">Ajouter un sujet </a>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <ul class="row blogGrid">
+                {% for f in forums %}
+                <li class="col-md-4 col-sm-6">
+                    <div class="blog-inter">
+                        <div class="postimg"> <img src="{{asset("uploads/images/"~f.photo)}}" alt="Blog Title">
+                            <div class="date"> {{ f.date|date('y/M/d') }}</div>
+                        </div>
+                        <div class="post-header">
+                            <h4><a href="{{ path('show_forum',{'id':f.id}) }}">{{ f.titre }}</a></h4>
+                            <div class="postmeta">By : <span>{{ f.user }} </span> Category : <a href="#">{{ f.categorie }} </a></div>
+                        </div>
+                        <div class="postmeta">
+                            <p>{{ f.cont }}</p>
+                            <div class="view-btn"><a href="{{ path('show_forum',{'id':f.id}) }}">Read More</a></div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -124,3 +124,13 @@ member_index:
 member_show:
     path:     /member/{id}/show
     defaults: {_controller: "AppBundle:Member:show"}
+insert_forum:
+    path:     /forum/insert
+    defaults: { _controller: "AppBundle:Forum:insert"}
+index_forum:
+    path:     /forum
+    defaults: { _controller: "AppBundle:Forum:index"}
+show_forum:
+    path:     /forum/show/{id}
+    defaults: { _controller: "AppBundle:Forum:show"}
+

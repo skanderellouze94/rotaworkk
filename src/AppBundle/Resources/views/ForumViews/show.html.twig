@@ -1,0 +1,53 @@
+{% extends 'Base2.html.twig' %}
+ {% block titre %}
+     <h3>Ajouter une annonce</h3>
+ {% endblock %}
+{% block content %}
+    <div class="inner-content blog-wrap">
+        <div class="container">
+
+            <!--Blog Details Start-->
+
+            <div class="blogWraper blogdetail">
+                <ul class="blogList">
+                    <li>
+                        <div class="postimg"><img src="{{asset("uploads/images/"~f.photo)}}"  alt="Blog Title">
+                            <div class="date"> {{ f.date|date('y/m/d') }}</div>
+                        </div>
+                        <div class="post-header margin-top30">
+                            <h4>{{ f.titre }}</h4>
+                            <div class="postmeta">By : <span>{{ f.user }} </span> Category : <span>{{ f.categorie }} </span></div>
+                        </div>
+                        <p> {{ f.contenu|raw }} </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="blogWraper blogdetail">
+                <ul class="blogList">
+        <h5 class="comments-title">Comments</h5>
+        <ul class="comment-list">
+            {% for c in cf %}
+                <li>
+                        <div class="media-body">
+                            <h5 class="media-heading comment-heading">{{ c.user }}:</h5>
+                            <div class="comment-date">{{ c.date|date('d/m/y') }}</div>
+                            <p>{{ c.contenu|raw }}</p>
+
+                        </div>
+                </li>
+            {% endfor %}
+
+        </ul>
+
+
+                <h5>Laissez un commentaire</h5>
+                <div class="row">
+
+                    {{ form_start(form) }}
+
+                    {{ form_widget(form.contenu, {'attr': {'class': 'form-control','placeholder':'Titre'}}) }}<br>
+
+                    <input type="submit" class="sbutn" value="Valider" />
+                    {{ form_end(form) }}
+                </div></div></div></div>
+{% endblock %}

@@ -16,95 +16,167 @@ class AdvertController extends Controller
      * Lists all advert entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM AppBundle:Advert a";
+        $query = $em->createQuery($dql);
 
-        $adverts = $em->getRepository('AppBundle:Advert')->findAll();
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
 
         return $this->render('AppBundle:advert:index.html.twig', array(
-            'adverts' => $adverts,
+            'adverts' => $pagination,
         ));
     }
 
-    public function indexITAction()
+    public function indexITAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM AppBundle:Advert a where a.categorie=1";
+        $query = $em->createQuery($dql);
 
-        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>1]);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
 
         return $this->render('AppBundle:advert:index.html.twig', array(
-            'adverts' => $adverts,
+            'adverts' => $pagination,
         ));
     }
-    public function indexManagmentAction()
+    public function indexManagmentAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM AppBundle:Advert a where a.categorie=2";
+        $query = $em->createQuery($dql);
 
-        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>2]);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
 
         return $this->render('AppBundle:advert:index.html.twig', array(
-            'adverts' => $adverts,
+            'adverts' => $pagination,
         ));
     }
-    public function indexDCAction()
+    public function indexDCAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM AppBundle:Advert a where a.categorie=3";
+        $query = $em->createQuery($dql);
 
-        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>3]);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
 
         return $this->render('AppBundle:advert:index.html.twig', array(
-            'adverts' => $adverts,
+            'adverts' => $pagination,
         ));
     }
-    public function indexAccAction()
+    public function indexAccAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM AppBundle:Advert a where a.categorie=4";
+        $query = $em->createQuery($dql);
 
-        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>4]);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
 
         return $this->render('AppBundle:advert:index.html.twig', array(
-            'adverts' => $adverts,
+            'adverts' => $pagination,
         ));
     }
-    public function indexSMAction()
+    public function indexSMAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM AppBundle:Advert a where a.categorie=5";
+        $query = $em->createQuery($dql);
 
-        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>5]);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
 
         return $this->render('AppBundle:advert:index.html.twig', array(
-            'adverts' => $adverts,
+            'adverts' => $pagination,
         ));
     }
-    public function indexLJAction()
+    public function indexLJAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM AppBundle:Advert a where a.categorie=6";
+        $query = $em->createQuery($dql);
 
-        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>6]);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
 
         return $this->render('AppBundle:advert:index.html.twig', array(
-            'adverts' => $adverts,
+            'adverts' => $pagination,
         ));
     }
-    public function indexBankAction()
+    public function indexBankAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM AppBundle:Advert a where a.categorie=7";
+        $query = $em->createQuery($dql);
 
-        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>7]);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
 
         return $this->render('AppBundle:advert:index.html.twig', array(
-            'adverts' => $adverts,
+            'adverts' => $pagination,
         ));
     }
-    public function indexDAAction()
+    public function indexDAAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM AppBundle:Advert a where a.categorie=8";
+        $query = $em->createQuery($dql);
 
-        $adverts = $em->getRepository('AppBundle:Advert')->findBy(['categorie'=>8]);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
 
         return $this->render('AppBundle:advert:index.html.twig', array(
-            'adverts' => $adverts,
+            'adverts' => $pagination,
         ));
     }
 
