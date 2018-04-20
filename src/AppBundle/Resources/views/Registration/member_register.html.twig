@@ -48,22 +48,46 @@
                 <div class="login">
                     <div class="contctxt">Please complete all fields.</div>
                     <div class="formint conForm">
-                        {{ form_start(form)}}
-                        {#{{ form_widget(form.nom, {'attr': {'class': 'form-control','placeholder':'Votre nom'}}) }}#}
-                        {#{{ form_widget(form.prenom, {'attr': {'class': 'form-control','placeholder':'Votre prenom'}}) }}#}
-                        {#{{ form_widget(form.email, {'attr': {'class': 'form-control','placeholder':'Votre adresse mail'}}) }}#}
-                        {#{{ form_widget(form.username, {'attr': {'class': 'form-control','placeholder':'Votre login'}}) }}#}
-                        {#{{ form_widget(form.cv, {'attr': {'class': 'form-control'}}) }}#}
-                        {#{{ form_widget(form.cvr, {'attr': {'class': 'form-control'}}) }}#}
-                        {#{{ form_widget(form.rotaract, {'attr': {'class': 'form-control'}}) }}#}
-                        {#{{ form_widget(form.numero, {'attr': {'class': 'form-control','placeholder':'Votre numero'}}) }}#}
-                        {#{{ form_widget(form.dateNaissance, {'attr': {'class': 'form-control','placeholder':'nom'}}) }}#}
-                        {#{{ form_widget(form.plainPassword, {'attr': {'class': 'form-control','placeholder':'nom'}}) }}#}
-
-                        <div>
-                            <input type="submit" value="{{ 'registration.submit'|trans }}" />
-                        </div>
-                        {{ form_end(form) }}
+            {{ form_start(form)}}
+            <label>Nom
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control','placeholder':'Votre nom','style':'width:500px'}}) }}
+            </label>
+            <label>Prénom
+                {{ form_widget(form.prenom, {'attr': {'class': 'form-control','placeholder':'Votre prenom','style':'width:500px'}}) }}
+            </label>
+            <label>Adresse
+                {{ form_widget(form.adresse, {'attr': {'class': 'form-control','placeholder':'Votre adresse','style':'width:500px'}}) }}
+            </label>
+            <label>Date de naissance
+                {{ form_widget(form.dateNaissance, {'attr': {'class': 'form-control','style':'width:500px'}}) }}
+            </label>
+            <label>Numéro
+                {{ form_widget(form.numero, {'attr': {'class': 'form-control','placeholder':'__ ___ ___','style':'width:500px'}}) }}
+            </label>
+            <label>Login
+                {{ form_widget(form.login, {'attr': {'class': 'form-control','placeholder':'Votre login','style':'width:500px'}}) }}
+            </label>
+            <label>Mot de passe
+                {{ form_widget(form.password, {'attr': {'class': 'form-control','placeholder':'Votre mot de passe','style':'width:500px'}}) }}
+            </label>
+            <label>Email
+                {{ form_widget(form.email, {'attr': {'class': 'form-control','style':'width:500px'}}) }}
+            </label>
+            <label>Rotaract
+                {{ form_widget(form.rotaract, {'attr': {'class': 'form-control','style':'width:500px'}}) }}
+            </label>
+            <label>CV
+                {{ form_widget(form.cv) }}
+            </label>
+            <label>Photo
+                {{ form_widget(form.photo) }}
+            </label>
+            <br>
+            <br>
+            <div>
+                <input type="submit" class="sbutn" value="{{ 'inscription'|trans }}" />
+            </div>
+            {{ form_end(form) }}
 
 
 

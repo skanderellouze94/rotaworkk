@@ -55,6 +55,7 @@ class MemberController extends Controller
             $em->persist($member);
 
             $em->flush();
+            return $this->redirectToRoute('fos_user_security_login');
 
 
         }

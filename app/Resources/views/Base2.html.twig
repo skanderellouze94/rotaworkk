@@ -41,7 +41,7 @@
             </div>
             <!--col-md-3 end-->
             <!--col-md-7 end-->
-            <div class="col-md-5 col-sm-9">
+            <div class="col-md-6 col-sm-9">
                 <!--Navegation start-->
                 <div class="navigationwrape">
                     <div class="navbar navbar-default" role="navigation">
@@ -54,8 +54,10 @@
                                 <li> <a href="{{ path('advert_index') }}"> Annonces </a></li>
                                 {% if is_granted('ROLE_PARTENAIRE') %}
                                 <li> <a href="{{ path('member_index') }}"> Employees </a></li>
+                                <li> <a href="{{ path('member_index') }}"> Cadidatures </a></li>
                                 {% endif %}
                                 {% if is_granted('ROLE_ADMIN') %}
+                                    <li> <a href="{{ path('member_index') }}"> Cadidatures </a></li>
                                 <li> <a href="{{ path('company_index') }}"> Entreprises </a></li>
                                 {% endif %}
 
@@ -70,12 +72,12 @@
             </div>
             <!--col-md-3 end-->
             <!--col-md-2 start-->
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-3 col-sm-5">
                 <div class="header-right">
                     {% if is_granted('ROLE_PARTENAIRE') %}
-                        <div class="post-btn"><a href="post-job.html">Post a Job</a></div>
+                        <div class="post-btn"><a href="{{ path('advert_new') }}">Post a Job</a></div>
                     {% endif %}
-                    <div class="user-wrap">
+                    <div class="col-md-2 user-wrap">
                         {% if app.user %}
                             <div class="login-btn"><a href="{{ path('fos_user_security_logout') }}">Logout</a></div>
                         {% else %}
