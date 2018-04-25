@@ -65,6 +65,19 @@ candidature_index:
     defaults: { _controller: "AppBundle:Candidature:index" }
     methods:  GET
 
+candidature_member_index:
+    path:     /candidature/member
+    defaults: { _controller: "AppBundle:Candidature:indexMembre" }
+    methods:  GET
+
+candidature_company_index:
+    path:     /candidature/company/{id}
+    defaults: { _controller: "AppBundle:Candidature:indexCompany" }
+    methods:  GET
+
+
+
+
 candidature_show:
     path:     /candidature/{id}/show
     defaults: { _controller: "AppBundle:Candidature:show" }

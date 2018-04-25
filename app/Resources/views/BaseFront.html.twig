@@ -56,10 +56,10 @@
                                 <li> <a href="{{ path('advert_index') }}"> Annonces </a></li>
                                 {% if is_granted('ROLE_PARTENAIRE') %}
                                     <li> <a href="{{ path('member_index') }}"> Employees </a></li>
-                                    <li> <a href="{{ path('member_index') }}"> Cadidatures </a></li>
+                                    <li> <a href="{{ path('candidature_company_index', { 'id': 1 }) }}"> Cadidatures </a></li>
                                 {% endif %}
                                 {% if is_granted('ROLE_ADMIN') %}
-                                    <li> <a href="{{ path('member_index') }}"> Cadidatures </a></li>
+                                    <li> <a href="{{ path('candidature_member_index') }}"> Cadidatures </a></li>
                                     <li> <a href="{{ path('company_index') }}"> Entreprises </a></li>
                                 {% endif %}
 

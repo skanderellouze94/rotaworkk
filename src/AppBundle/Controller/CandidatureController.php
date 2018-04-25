@@ -26,6 +26,28 @@ class CandidatureController extends Controller
             'candidatures' => $candidatures,
         ));
     }
+        public function indexMembreAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $candidatures = $em->getRepository('AppBundle:Candidature')->findBy(['user'=>$this->getUser()->getId()]);
+
+        return $this->render('AppBundle:candidature:index.html.twig', array(
+            'candidatures' => $candidatures,
+        ));
+    }
+            public function indexCompanyAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $candidatures = $em->getRepository('AppBundle:Candidature')->findBy(['advert'=>$id]);
+
+        return $this->render('AppBundle:candidature:index.html.twig', array(
+            'candidatures' => $candidatures,
+        ));
+    }
+
+
 
     /**
      * Creates a new candidature entity.

@@ -7,7 +7,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Date</th>
+                <th>advert</th>
+                <th>advert</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -15,7 +16,8 @@
         {% for candidature in candidatures %}
             <tr>
                 <td><a href="{{ path('candidature_show', { 'id': candidature.id }) }}">{{ candidature.id }}</a></td>
-                <td>{{ candidature.date }}</td>
+                <td>{{ candidature.advert }}</td>
+                <td>{{ candidature.advert.company.name }}</td>
                 <td>
                     <ul>
                         <li>
@@ -33,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('candidature_new') }}">Create a new candidature</a>
+
         </li>
     </ul>
 {% endblock %}

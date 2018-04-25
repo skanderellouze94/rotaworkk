@@ -247,4 +247,11 @@ class Advert
     {
         return $this->company;
     }
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
+
 }
